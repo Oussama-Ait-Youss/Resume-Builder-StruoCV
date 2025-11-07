@@ -10,7 +10,7 @@
 </head>
 
 <body class="bg-gray-50 text-gray-800">
-    <div id="page" class="site min-h-screen flex items-center justify-center py-10">
+    <div id="page" class="site min-h-screen flex items-center justify-center py-10 flex-col gap-5">
         <div class="container mx-auto max-w-3xl bg-white p-8 rounded-2xl shadow-lg">
 
             <!-- Header -->
@@ -96,13 +96,13 @@
                                 <label class="block font-medium mb-1">First Name</label>
                                 <input type="text" placeholder="Enter your first name..." id="first-name"
                                     class="w-full border border-gray-300 rounded-lg p-2">
-                                    <span id="first-name-error-zone" class="text-red-600"></span>
+                                <span id="first-name-error-zone" class="text-red-600"></span>
                             </div>
                             <div>
                                 <label class="block font-medium mb-1">Last Name</label>
                                 <input type="text" placeholder="Enter your last name..." id="last-name"
                                     class="w-full border border-gray-300 rounded-lg p-2">
-                                    <span id="last-name-error-zone" class="text-red-600"></span>
+                                <span id="last-name-error-zone" class="text-red-600"></span>
                             </div>
                         </div>
 
@@ -110,27 +110,23 @@
                             <label class="block font-medium mb-1">Email</label>
                             <input type="email" placeholder="example@email.com" id="email"
                                 class="w-full border border-gray-300 rounded-lg p-2">
-                                <span id="email-error-zone" class="text-red-600"></span>
+                            <span id="email-error-zone" class="text-red-600"></span>
                         </div>
 
                         <div>
                             <label class="block font-medium mb-1">Phone</label>
                             <input type="text" placeholder="Enter your phone number..." id="phone"
                                 class="w-full border border-gray-300 rounded-lg p-2">
-                                <span id="phone-error-zone" class="text-red-600"></span>
+                            <span id="phone-error-zone" class="text-red-600"></span>
                         </div>
 
                         <div>
                             <label class="block font-medium mb-1">Address</label>
                             <input type="text" placeholder="Enter your address..." id="address"
                                 class="w-full border border-gray-300 rounded-lg p-2">
-                                <span id="address-error-zone" class="text-red-600"></span>
+                            <span id="address-error-zone" class="text-red-600"></span>
                         </div>
                     </div>
-                    <button id="pre-btn"
-                        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">previous</button>
-                    <button id="next-btn"
-                        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">next</button>
                 </section>
 
                 <!-- STEP 2: Education -->
@@ -183,36 +179,37 @@
                             <label class="block font-medium mb-1">School / University</label>
                             <input type="text" id="school" placeholder="Enter your school or university..."
                                 class="w-full border border-gray-300 rounded-lg p-2">
+                            <span id="school-error-zone" class="text-red-600"></span>
                         </div>
 
                         <div>
                             <label class="block font-medium mb-1">Degree / Diploma</label>
                             <input type="text" id="degree" placeholder="Bachelor, Master, etc..."
                                 class="w-full border border-gray-300 rounded-lg p-2">
+                            <span id="diploma-error-zone" class="text-red-600"></span>
                         </div>
 
                         <div>
                             <label class="block font-medium mb-1">Start Year</label>
                             <input type="text" id="edu-start" placeholder="YYYY"
                                 class="w-full border border-gray-300 rounded-lg p-2">
+                            <span id="start-year-error-zone" class="text-red-600"></span>
                         </div>
 
                         <div>
                             <label class="block font-medium mb-1">End Year</label>
                             <input type="text" id="edu-end" placeholder="YYYY"
                                 class="w-full border border-gray-300 rounded-lg p-2">
+                            <span id="end-year-error-zone" class="text-red-600"></span>
                         </div>
 
                         <div class="col-span-2">
                             <label class="block font-medium mb-1">Description</label>
                             <textarea id="edu-description" rows="3" placeholder="Optional description..."
                                 class="w-full border border-gray-300 rounded-lg p-2"></textarea>
+                            <span id="education-description-error-zone" class="text-red-600"></span>
                         </div>
                     </div>
-                    <button id="pre-btn"
-                        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">previous</button>
-                    <button id="next-btn"
-                        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">next</button>
                 </section>
                 <!-- STEP 2: Experience -->
                 <section class="form-three form-step space-y-6 visible_section">
@@ -271,21 +268,25 @@
                             <label class="block font-medium mb-1">Company Name:</label>
                             <input type="text" id="company" placeholder="Enter your company name..."
                                 class="w-full border border-gray-300 rounded-lg p-2">
+                            <span id="company_error_zone" class="text-red-600"></span>
                         </div>
                         <div>
                             <label class="block font-medium mb-1">Position:</label>
                             <input type="text" id="position" placeholder="Enter your position..."
                                 class="w-full border border-gray-300 rounded-lg p-2">
+                            <span id="position_error_zone" class="text-red-600"></span>
                         </div>
                         <div>
                             <label class="block font-medium mb-1">Start Year:</label>
                             <input type="text" id="exp-start" placeholder="Enter your position..."
                                 class="w-full border border-gray-300 rounded-lg p-2">
+                            <span id="exp_start_year_error_zone" class="text-red-600"></span>
                         </div>
                         <div>
                             <label class="block font-medium mb-1">End Year:</label>
                             <input type="text" id="exp-end" placeholder="Enter your position..."
                                 class="w-full border border-gray-300 rounded-lg p-2">
+                            <span id="exp_end_year_error_zone" class="text-red-600"></span>
                         </div>
 
 
@@ -293,12 +294,9 @@
                             <label class="block font-medium mb-1">Description</label>
                             <textarea id="exp-description" rows="3" placeholder="Optional description..."
                                 class="w-full border border-gray-300 rounded-lg p-2"></textarea>
+                            <span id="exp_description_error_zone" class="text-red-600"></span>
                         </div>
                     </div>
-                    <button id="pre-btn"
-                        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">previous</button>
-                    <button id="next-btn"
-                        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">next</button>
                 </section>
                 <!-- STEP 2: Skills -->
                 <section class="form-four form-step space-y-6 visible_section">
@@ -365,10 +363,7 @@
                         </div>
 
                     </div>
-                    <button id="pre-btn"
-                        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">previous</button>
-                    <button id="next-btn"
-                        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">next</button>
+
                 </section>
                 <!-- Finalize Your CV -->
                 <section class="form-final form-step space-y-6 visible_section">
@@ -463,16 +458,19 @@
                     <p class="text-gray-500 text-sm mt-3">
                         ⚠️ Please verify all sections before downloading your CV.
                     </p>
-                    <button id="pre-btn"
-                        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">previous</button>
                 </section>
 
-
             </form>
+        </div>
+        <div class="flex justify-between gap-36 align-middle">
 
+            <button id="pre-btn"
+                class="text-white bg-blue-700 hover:bg-blue-800  font-medium rounded-lg text-sm px-28 py-3 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none 3dark:focus:ring-blue-800">previous</button>
+            <button id="next-btn"
+                class="text-white bg-blue-700 hover:bg-blue-800  font-medium rounded-lg text-sm px-28 py-3 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">next</button>
         </div>
     </div>
-    <script src="js/javascript.js"></script>
+    <script  type="module" src="js/javascript.js"></script>
 </body>
 
 </html>
