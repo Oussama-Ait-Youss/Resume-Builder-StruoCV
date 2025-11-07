@@ -1,5 +1,8 @@
 # Resume-Builder-StruoCV
 
+
+
+
    CV BUILDER – Create Your Professional Resume Online
 
 A modern   CV Builder Web App   that allows users to   create, customize, and download their resume   easily.  
@@ -68,11 +71,6 @@ Fully responsive layout built with TailwindCSS — works on all devices.
     Trello Link:
         https://trello.com/b/BcpHBpPv/resume-builder-struocv
  
-
-
-
-
-
 
 # Auteur 
 Nom: Ait Youss
