@@ -7,11 +7,14 @@
     <title>CV Builder</title>
     <link rel="stylesheet" href="style/style.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
 </head>
+
 
 <body class="bg-gray-50 text-gray-800">
     <div id="page" class="site min-h-screen flex items-center justify-center py-10 flex-col gap-5">
-        <div class="container mx-auto max-w-3xl bg-white p-8 rounded-2xl shadow-lg">
+        <div class="container  max-w-max bg-white p-8 rounded-2xl shadow-lg">
 
             <!-- Header -->
             <div class="text-center mb-10">
@@ -20,71 +23,89 @@
             </div>
 
             <form action="" class="space-y-16">
-
+                <!-- Progress bar -->
+                <ol
+                    class="flex items-center w-full p-3 space-x-2 text-sm font-medium text-center text-gray-500 bg-white border border-gray-200 rounded-lg shadow-sm">
+                    <li class="flex items-center text-blue-600">
+                        <span
+                            class="flex items-center justify-center w-5 h-5 me-2 text-xs border border-blue-600 rounded-full">1</span>
+                        Personal Info
+                        <svg class="w-3 h-3 ms-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 12 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="m7 9 4-4-4-4M1 9l4-4-4-4" />
+                        </svg>
+                    </li>
+                    <li class="flex items-center">
+                        <span
+                            class="flex items-center justify-center w-5 h-5 me-2 text-xs border  rounded-full">2</span>
+                        Education
+                        <svg class="w-3 h-3 ms-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 12 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="m7 9 4-4-4-4M1 9l4-4-4-4" />
+                        </svg>
+                    </li>
+                    <li class="flex items-center">
+                        <span
+                            class="flex items-center justify-center w-5 h-5 me-2 text-xs border border-gray-600 rounded-full">3</span>
+                        Experience
+                    </li>
+                    <li class="flex items-center ">
+                        <span
+                            class="flex items-center justify-center w-5 h-5 me-2 text-xs border border-gray-600 rounded-full">4</span>
+                        Skills
+                    </li>
+                    <li class="flex items-center ">
+                        <span
+                            class="flex items-center justify-center w-5 h-5 me-2 text-xs border border-gray-600 rounded-full">5</span>
+                        Languages
+                    </li>
+                    <li class="flex items-center">
+                        <span
+                            class="flex items-center justify-center w-5 h-5 me-2 text-xs border border-gray-500 rounded-full">6</span>
+                        Certification
+                    </li>
+                    <li class="flex items-center">
+                        <span
+                            class="flex items-center justify-center w-5 h-5 me-2 text-xs border border-gray-500 rounded-full">7</span>
+                        Projects
+                    </li>
+                    <li class="flex items-center">
+                        <span
+                            class="flex items-center justify-center w-5 h-5 me-2 text-xs border border-gray-500 rounded-full">8</span>
+                        Finalize
+                    </li>
+                </ol>
                 <!-- STEP 1: Contact Information -->
                 <section class="form-one form-step space-y-6 visible_section">
 
-                    <!-- Progress bar -->
-                    <ol
-                        class="flex items-center w-full p-3 space-x-2 text-sm font-medium text-center text-gray-500 bg-white border border-gray-200 rounded-lg shadow-sm">
-                        <li class="flex items-center text-blue-600">
-                            <span
-                                class="flex items-center justify-center w-5 h-5 me-2 text-xs border border-blue-600 rounded-full">1</span>
-                            Personal Info
-                            <svg class="w-3 h-3 ms-2" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                viewBox="0 0 12 10">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2" d="m7 9 4-4-4-4M1 9l4-4-4-4" />
-                            </svg>
-                        </li>
-                        <li class="flex items-center">
-                            <span
-                                class="flex items-center justify-center w-5 h-5 me-2 text-xs border border-gray-500 rounded-full">2</span>
-                            Education
-                            <svg class="w-3 h-3 ms-2" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                viewBox="0 0 12 10">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2" d="m7 9 4-4-4-4M1 9l4-4-4-4" />
-                            </svg>
-                        </li>
-                        <li class="flex items-center">
-                            <span
-                                class="flex items-center justify-center w-5 h-5 me-2 text-xs border border-gray-500 rounded-full">3</span>
-                            Experience
-                        </li>
-                        <li class="flex items-center">
-                            <span
-                                class="flex items-center justify-center w-5 h-5 me-2 text-xs border border-gray-500 rounded-full">4</span>
-                            Skills
-                        </li>
-                        <li class="flex items-center">
-                            <span
-                                class="flex items-center justify-center w-5 h-5 me-2 text-xs border border-gray-500 rounded-full">5</span>
-                            Finalize
-                        </li>
-                    </ol>
-
+                    
                     <h2 class="text-2xl font-semibold text-gray-800">Contact Information</h2>
                     <p class="text-gray-500">Enter your personal details</p>
 
                     <div class="grid grid-cols-1 gap-5">
 
                         <label for="">Upload Your Image</label>
-                        <div class="flex items-center justify-center w-80">
+                        <div class="flex items-center justify-center mx-auto w-80">
                             <label for="dropzone-file"
-                                class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-gray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
-                                <div class="flex flex-col items-center justify-center pt-5 pb-6">
-                                    <svg class="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
+                                class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50">
+
+                                <!-- Preview Image -->
+                                <img id="preview-image" class="hidden w-full h-full object-cover rounded-lg"
+                                    aria-label="photo pic place " />
+
+                                <!-- Upload UI -->
+                                <div id="upload-ui" class="flex flex-col items-center justify-center pt-5 pb-6">
+                                    <svg class="w-8 h-8 mb-4 text-gray-500" aria-hidden="true"
                                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                             stroke-width="2"
                                             d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
                                     </svg>
-                                    <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span
-                                            class="font-semibold">Click to upload</span> or drag and drop</p>
-                                    <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX.
-                                        800x400px)</p>
+                                    <p class="mb-2 text-sm text-gray-500"><span class="font-semibold">Click to
+                                            upload</span> or drag and drop</p>
+                                    <p class="text-xs text-gray-500">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
                                 </div>
+
                                 <input id="dropzone-file" type="file" class="hidden" />
                                 <span id="photo-error-zone" class="text-red-600"></span>
                             </label>
@@ -128,48 +149,9 @@
                         </div>
                     </div>
                 </section>
-
                 <!-- STEP 2: Education -->
                 <section class="form-two form-step space-y-6 visible_section">
-                    <!-- Progress bar -->
-                    <ol
-                        class="flex items-center w-full p-3 space-x-2 text-sm font-medium text-center text-gray-500 bg-white border border-gray-200 rounded-lg shadow-sm">
-                        <li class="flex items-center text-blue-600">
-                            <span
-                                class="flex items-center justify-center w-5 h-5 me-2 text-xs border border-blue-600 rounded-full">1</span>
-                            Personal Info
-                            <svg class="w-3 h-3 ms-2" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                viewBox="0 0 12 10">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2" d="m7 9 4-4-4-4M1 9l4-4-4-4" />
-                            </svg>
-                        </li>
-                        <li class="flex items-center text-blue-600">
-                            <span
-                                class="flex items-center justify-center w-5 h-5 me-2 text-xs border border-blue-600 rounded-full">2</span>
-                            Education
-                            <svg class="w-3 h-3 ms-2" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                viewBox="0 0 12 10">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2" d="m7 9 4-4-4-4M1 9l4-4-4-4" />
-                            </svg>
-                        </li>
-                        <li class="flex items-center">
-                            <span
-                                class="flex items-center justify-center w-5 h-5 me-2 text-xs border border-gray-500 rounded-full">3</span>
-                            Experience
-                        </li>
-                        <li class="flex items-center">
-                            <span
-                                class="flex items-center justify-center w-5 h-5 me-2 text-xs border border-gray-500 rounded-full">4</span>
-                            Skills
-                        </li>
-                        <li class="flex items-center">
-                            <span
-                                class="flex items-center justify-center w-5 h-5 me-2 text-xs border border-gray-500 rounded-full">5</span>
-                            Finalize
-                        </li>
-                    </ol>
+                    
 
                     <h2 class="text-2xl font-semibold text-gray-800">Education</h2>
                     <p class="text-gray-500">Add your educational background</p>
@@ -211,59 +193,14 @@
                         </div>
                     </div>
                 </section>
-                <!-- STEP 2: Experience -->
+                <!-- STEP 3: Experience -->
                 <section class="form-three form-step space-y-6 visible_section">
-                    <!-- Progress bar -->
-                    <ol
-                        class="flex items-center w-full p-3 space-x-2 text-sm font-medium text-center text-gray-500 bg-white border border-gray-200 rounded-lg shadow-sm">
-                        <li class="flex items-center text-blue-600">
-                            <span
-                                class="flex items-center justify-center w-5 h-5 me-2 text-xs border border-blue-600 rounded-full">1</span>
-                            Personal Info
-                            <svg class="w-3 h-3 ms-2" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                viewBox="0 0 12 10">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2" d="m7 9 4-4-4-4M1 9l4-4-4-4" />
-                            </svg>
-                        </li>
-                        <li class="flex items-center text-blue-600">
-                            <span
-                                class="flex items-center justify-center w-5 h-5 me-2 text-xs border border-blue-600 rounded-full">2</span>
-                            Education
-                            <svg class="w-3 h-3 ms-2" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                viewBox="0 0 12 10">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2" d="m7 9 4-4-4-4M1 9l4-4-4-4" />
-                            </svg>
-                        </li>
-                        <li class="flex items-center text-blue-600">
-                            <span
-                                class="flex items-center justify-center w-5 h-5 me-2 text-xs border border-blue-600 rounded-full">3</span>
-                            Experience
-                            <svg class="w-3 h-3 ms-2" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                viewBox="0 0 12 10">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2" d="m7 9 4-4-4-4M1 9l4-4-4-4" />
-                            </svg>
-                        </li>
-                        <li class="flex items-center">
-                            <span
-                                class="flex items-center justify-center w-5 h-5 me-2 text-xs border border-gray-500 rounded-full">4</span>
-                            Skills
-                        </li>
-                        <li class="flex items-center">
-                            <span
-                                class="flex items-center justify-center w-5 h-5 me-2 text-xs border border-gray-500 rounded-full">5</span>
-                            Finalize
-                        </li>
-                    </ol>
-
                     <h2 class="text-2xl font-semibold text-gray-800">Experience</h2>
                     <!-- <label for="company">Company Name:</label> <input type="text" id="company"
                                     placeholder="Enter company name..."> -->
                     <p class="text-gray-500">Add your Experiences</p>
 
-                    <div class="grid grid-cols-2 gap-4">
+                    <div class="grid grid-cols-2 gap-4" id="form_div">
                         <div>
                             <label class="block font-medium mb-1">Company Name:</label>
                             <input type="text" id="company" placeholder="Enter your company name..."
@@ -296,132 +233,165 @@
                                 class="w-full border border-gray-300 rounded-lg p-2"></textarea>
                             <span id="exp_description_error_zone" class="text-red-600"></span>
                         </div>
+                        <button id="add_btn" type="button"
+                            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg m-auto text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Add</button>
                     </div>
                 </section>
-                <!-- STEP 2: Skills -->
+                <!-- STEP 4: Skills -->
                 <section class="form-four form-step space-y-6 visible_section">
-                    <!-- Progress bar -->
-                    <ol
-                        class="flex items-center w-full p-3 space-x-2 text-sm font-medium text-center text-gray-500 bg-white border border-gray-200 rounded-lg shadow-sm">
-                        <li class="flex items-center text-blue-600">
-                            <span
-                                class="flex items-center justify-center w-5 h-5 me-2 text-xs border border-blue-600 rounded-full">1</span>
-                            Personal Info
-                            <svg class="w-3 h-3 ms-2" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                viewBox="0 0 12 10">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2" d="m7 9 4-4-4-4M1 9l4-4-4-4" />
-                            </svg>
-                        </li>
-                        <li class="flex items-center text-blue-600">
-                            <span
-                                class="flex items-center justify-center w-5 h-5 me-2 text-xs border border-blue-600 rounded-full">2</span>
-                            Education
-                            <svg class="w-3 h-3 ms-2" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                viewBox="0 0 12 10">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2" d="m7 9 4-4-4-4M1 9l4-4-4-4" />
-                            </svg>
-                        </li>
-                        <li class="flex items-center text-blue-600">
-                            <span
-                                class="flex items-center justify-center w-5 h-5 me-2 text-xs border border-blue-600 rounded-full">3</span>
-                            Experience
-                            <svg class="w-3 h-3 ms-2" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                viewBox="0 0 12 10">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2" d="m7 9 4-4-4-4M1 9l4-4-4-4" />
-                            </svg>
-                        </li>
-                        <li class="flex items-center text-blue-600">
-                            <span
-                                class="flex items-center justify-center w-5 h-5 me-2 text-xs border border-blue-600 rounded-full">4</span>
-                            Skills
-                            <svg class="w-3 h-3 ms-2" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                viewBox="0 0 12 10">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2" d="m7 9 4-4-4-4M1 9l4-4-4-4" />
-                            </svg>
-                        </li>
-                        <li class="flex items-center">
-                            <span
-                                class="flex items-center justify-center w-5 h-5 me-2 text-xs border border-gray-500 rounded-full">5</span>
-                            Finalize
-                        </li>
-                    </ol>
-
-                    <h2 class="text-2xl font-semibold text-gray-800">Skills</h2>
-                    <!-- <label for="company">Company Name:</label> <input type="text" id="company"
-                                    placeholder="Enter company name..."> -->
-                    <p class="text-gray-500">Add your Skills</p>
+                    <div class="flex justify-between">
+                        <div>
+                            <h2 class="text-2xl font-semibold text-gray-800">Skills</h2>
+                            <p class="text-gray-500">Add your Skills</p>
+                        </div>
+                        <button type="button" id="btn-skill-add"
+                            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4  font-medium rounded-lg text-sm px-4 py-0.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none ">Add</button>
+                    </div>
 
                     <div class="grid grid-cols-2 gap-4">
+
+                        <!-- Technical Skills -->
                         <div>
-                            <label class="block font-medium mb-1">Skills:</label>
-                            <input type="text" id="skills" placeholder="React,HTML,CSS,JavaScript..."
+                            <label class="block font-medium mb-1">Technical Skills:</label>
+                            <input type="text" id="technical-skills" placeholder="HTML, CSS, JavaScript, PHP, Java..."
                                 class="w-full border border-gray-300 rounded-lg p-2">
+                            <span id="tech-skills-error-zone" class="text-red-600"></span>
+                        </div>
+
+                        <!-- Soft Skills (Dropdown) -->
+                        <div>
+                            <label class="block font-medium mb-1">Soft Skills:</label>
+                            <select id="soft-skills" class="w-full border border-gray-300 rounded-lg p-2">
+                                <option value="">Select a soft skill</option>
+                                <option value="Communication">Communication</option>
+                                <option value="Teamwork">Teamwork</option>
+                                <option value="Problem Solving">Problem Solving</option>
+                                <option value="Time Management">Time Management</option>
+                                <option value="Leadership">Leadership</option>
+                                <option value="Adaptability">Adaptability</option>
+                                <option value="Creativity">Creativity</option>
+                            </select>
+                            <span id="skills-list-error-zone" class="text-red-600"></span>
+                        </div>
+                    </div>
+                    <ul id="skills-list" class="flex-col">
+                        <!-- added with js -->
+                    </ul>
+
+
+
+                </section>
+                <!--STEP 5 : Languages -->
+                <section class="form-five form-step space-y-6 visible_section">
+                    <div class="flex justify-between">
+                        <div>
+                            <h2 class="text-2xl font-semibold text-gray-800">Languages</h2>
+                            <p class="text-gray-500">Add the languages you speak</p>
+                        </div>
+                        <button type="button" id="btn_add_lang"
+                            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-0.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Add</button>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+
+                        <!-- Language Name -->
+                        <div>
+                            <label class="block font-medium mb-1">Language:</label>
+                            <input type="text" id="language-name" placeholder="Arabic, French, English..."
+                                class="w-full border border-gray-300 rounded-lg p-2">
+                            <span id="language-name-error-zone" class="text-red-600"></span>
+                        </div>
+
+                        <!-- Language Level -->
+                        <div>
+                            <label class="block font-medium mb-1">Level:</label>
+                            <select id="language-level" class="w-full border border-gray-300 rounded-lg p-2">
+                                <option value="">Select level</option>
+                                <option value="Native">Native</option>
+                                <option value="Fluent">Fluent</option>
+                                <option value="Advanced">Advanced</option>
+                                <option value="Intermediate">Intermediate</option>
+                                <option value="Beginner">Beginner</option>
+                            </select>
+                            <span id="language-level-error-zone" class="text-red-600"></span>
+                        </div>
+
+                    </div>
+                    <ul id="language-list" class="flex-col">
+                        <!-- added with js -->
+                    </ul>
+
+                </section>
+                <!-- STEP 6: certification -->
+                <section class="form-six form-step space-y-6 visible_section">
+                    <h2 class="text-2xl font-semibold text-gray-800">Certifications</h2>
+                    <p class="text-gray-500">Add your certifications</p>
+
+                    <div class="grid grid-cols-2 gap-4">
+
+                        <!-- Certification Title -->
+                        <div>
+                            <label class="block font-medium mb-1">Certification Title:</label>
+                            <input type="text" id="cert-title"
+                                placeholder="Web Development Certificate, Java Foundations..."
+                                class="w-full border border-gray-300 rounded-lg p-2">
+                            <span id="cert-title-error-zone" class="text-red-600"></span>
+                        </div>
+
+                        <!-- Issued By -->
+                        <div>
+                            <label class="block font-medium mb-1">Issued By:</label>
+                            <input type="text" id="cert-issuer" placeholder="Udemy, Coursera, OFPPT..."
+                                class="w-full border border-gray-300 rounded-lg p-2">
+                            <span id="cert-issuer-error-zone" class="text-red-600"></span>
+                        </div>
+
+                        <!-- Year -->
+                        <div class="col-span-2">
+                            <label class="block font-medium mb-1">Year:</label>
+                            <input type="text" id="cert-year" placeholder="2024, 2023..."
+                                class="w-full border border-gray-300 rounded-lg p-2">
+                            <span id="cert-year-error-zone" class="text-red-600"></span>
                         </div>
 
                     </div>
 
                 </section>
-                <!-- Finalize Your CV -->
-                <section class="form-final form-step space-y-6 visible_section">
-                    <!-- Progress bar -->
-                    <ol
-                        class="flex items-center w-full p-3 space-x-2 text-sm font-medium text-center text-gray-500 bg-white border border-gray-200 rounded-lg shadow-sm">
-                        <li class="flex items-center text-blue-600">
-                            <span
-                                class="flex items-center justify-center w-5 h-5 me-2 text-xs border border-blue-600 rounded-full">1</span>
-                            Personal Info
-                            <svg class="w-3 h-3 ms-2" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                viewBox="0 0 12 10">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2" d="m7 9 4-4-4-4M1 9l4-4-4-4" />
-                            </svg>
-                        </li>
-                        <li class="flex items-center text-blue-600">
-                            <span
-                                class="flex items-center justify-center w-5 h-5 me-2 text-xs border border-blue-600 rounded-full">2</span>
-                            Education
-                            <svg class="w-3 h-3 ms-2" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                viewBox="0 0 12 10">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2" d="m7 9 4-4-4-4M1 9l4-4-4-4" />
-                            </svg>
-                        </li>
-                        <li class="flex items-center text-blue-600">
-                            <span
-                                class="flex items-center justify-center w-5 h-5 me-2 text-xs border border-blue-600 rounded-full">3</span>
-                            Experience
-                            <svg class="w-3 h-3 ms-2" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                viewBox="0 0 12 10">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2" d="m7 9 4-4-4-4M1 9l4-4-4-4" />
-                            </svg>
-                        </li>
-                        <li class="flex items-center text-blue-600">
-                            <span
-                                class="flex items-center justify-center w-5 h-5 me-2 text-xs border border-blue-600 rounded-full">4</span>
-                            Skills
-                            <svg class="w-3 h-3 ms-2" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                viewBox="0 0 12 10">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2" d="m7 9 4-4-4-4M1 9l4-4-4-4" />
-                            </svg>
-                        </li>
-                        <li class="flex items-center text-blue-600">
-                            <span
-                                class="flex items-center justify-center w-5 h-5 me-2 text-xs border border-blue-600 rounded-full">5</span>
-                            Finalize
-                            <svg class="w-3 h-3 ms-2" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                viewBox="0 0 12 10">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2" d="m7 9 4-4-4-4M1 9l4-4-4-4" />
-                            </svg>
-                        </li>
-                    </ol>
+                <!-- STEP 7: Projects -->
+                <section class="form-seven form-step space-y-6 visible_section">
+                    <h2 class="text-2xl font-semibold text-gray-800">Projects</h2>
+                    <p class="text-gray-500">Add your projects</p>
 
+                    <div class="grid grid-cols-2 gap-4">
+
+                        <!-- Project Name -->
+                        <div>
+                            <label class="block font-medium mb-1">Project Name:</label>
+                            <input type="text" id="project-name"
+                                placeholder="Restaurant Website, Portfolio, Java App..."
+                                class="w-full border border-gray-300 rounded-lg p-2">
+                            <span id="project_name_error_zone" class="text-red-600"></span>
+                        </div>
+
+                        <!-- Project Link -->
+                        <div>
+                            <label class="block font-medium mb-1">Project Link:</label>
+                            <input type="text" id="project-link" placeholder="https://github.com/yourproject"
+                                class="w-full border border-gray-300 rounded-lg p-2">
+                            <span id="project_link_error_zone" class="text-red-600"></span>
+                        </div>
+
+                        <!-- Description -->
+                        <div class="col-span-2">
+                            <label class="block font-medium mb-1">Description:</label>
+                            <textarea id="project-desc"
+                                placeholder="Explain what the project does, technologies used, and your role..."
+                                class="w-full border border-gray-300 rounded-lg p-2 h-24"></textarea>
+                            <span id="project_desc_error_zone" class="text-red-600"></span>
+                        </div>
+                    </div>
+                </section>
+                <!-- STEP 8:Finalize Your CV -->
+                <section class="form-final form-step space-y-6 visible_section">
                     <!-- Title -->
                     <h2 class="text-2xl font-semibold text-gray-800">Finalize Your CV</h2>
                     <p class="text-gray-500">Review your details before exporting.</p>
@@ -459,9 +429,12 @@
                         ⚠️ Please verify all sections before downloading your CV.
                     </p>
                 </section>
-
             </form>
         </div>
+
+
+
+
         <div class="flex justify-between gap-36 align-middle">
 
             <button id="pre-btn"
@@ -470,7 +443,8 @@
                 class="text-white bg-blue-700 hover:bg-blue-800  font-medium rounded-lg text-sm px-28 py-3 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">next</button>
         </div>
     </div>
-    <script  type="module" src="js/javascript.js"></script>
+    <script type="module" src="js/javascript.js"></script>
 </body>
+
 
 </html>

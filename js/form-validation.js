@@ -4,7 +4,6 @@
 
 
 
-
 //contact information form
 export function info_form_validation() {
 
@@ -35,19 +34,39 @@ export function info_form_validation() {
     info_phone_error_zone.textContent = "";
     info_photo_error_zone.textContent = "";
 
-
+    const strRegex = /^[A-Za-z]$/
     let hasError = true;
 
     // Check all fields
     if (info_first_name === "") {
         info_first_name_error_zone.textContent = "Please enter your first name";
         hasError = false;
+    } else if (strRegex.test(info_first_name)) {
+
+        info_first_name_error_zone.textContent = "invalide input";
+        hasError = false;
+
     }
 
+
+    const fileName = document.getElementById('dropzone-file').value;
+    let ext = fileName.substring(fileName.lastIndexOf('.') + 1).toLowerCase();
+    const file_types = ['jpg','jpeg','png','pdf'];
+
+
     if (info_dropzone_file.files.length === 0) {
+
         info_photo_error_zone.textContent = "Please add your photo"
         hasError = false;
+
+    } else if (!file_types.includes(ext)) {
+
+        info_photo_error_zone.textContent = "Only types are accepted: jped,jpg,pnd,pdf"
+        hasError = false;
+
     }
+
+
 
     if (info_last_name === "") {
         info_last_name_error_zone.textContent = "Please enter your last name";
@@ -85,7 +104,6 @@ export function info_form_validation() {
     return hasError;
 }
 //education information form
-
 export function edu_form_validation() {
 
     //take user input value form 2
@@ -180,9 +198,7 @@ export function edu_form_validation() {
 
     return hasError
 }
-
 // Experience information form validation
-
 export function exp_form_validation() {
 
     //take user input value form 3
@@ -231,6 +247,11 @@ export function exp_form_validation() {
         position_error_zone.textContent = "Please add your position"
         hasError = false;
 
+    } else if (!strRegex.test(exp_position)) {
+
+        position_error_zone.textContent = "invalide input";
+        hasError = false;
+
     }
 
 
@@ -273,3 +294,162 @@ export function exp_form_validation() {
 
     return hasError;
 }
+// Skills form validation
+export function skills_form_validation() {
+    const technical_skills = document.getElementById('technical-skills').value;
+    const soft_skills = document.getElementById('soft-skills').value;
+    const skills_list_error_zone = document.getElementById('skills-list-error-zone');
+    const tech_skills_error_zone = document.getElementById('tech-skills-error-zone');
+
+
+    // clear the error zone
+    skills_list_error_zone.textContent = "";
+    tech_skills_error_zone.textContent = "";
+
+
+    const strRegex = /^[A-Za-z]$/
+    let hasError = true;
+
+    // Check all fields
+    if (technical_skills === "") {
+        tech_skills_error_zone.textContent = "Please enter your technical skill";
+        hasError = false;
+    }
+    if (soft_skills === "") {
+        skills_list_error_zone.textContent = "Please select a soft skill";
+        hasError = false;
+    }
+
+    return hasError;
+
+
+}
+// Languages form validation
+export function languages_form_validation() {
+    const language_name = document.getElementById('language-name').value;
+    const language_level = document.getElementById('language-level').value;
+    const language_name_error_zone = document.getElementById('language-name-error-zone');
+    const language_level_error_zone = document.getElementById('language-level-error-zone');
+
+
+    // clear the error zone
+    language_level_error_zone.textContent = "";
+    language_name_error_zone.textContent = "";
+
+
+    const strRegex = /^[A-Za-z]$/
+    let hasError = true;
+
+    // Check all fields
+    if (language_name === "") {
+        language_name_error_zone.textContent = "Please enter your technical skill";
+        hasError = false;
+    }
+    if (language_level === "") {
+        language_level_error_zone.textContent = "Please select a soft skill";
+        hasError = false;
+    }
+
+    return hasError;
+
+}
+// certification form validation
+export function certification_form_validation() {
+    // certification  form validation
+    // user value 
+    const cert_title = document.getElementById('cert-title').value;
+    const cert_issuer = document.getElementById('cert-issuer').value;
+    const cert_year = document.getElementById('cert-year').value;
+
+
+    // error areas
+    const cert_title_error_zone = document.getElementById('cert-title-error-zone')
+    const cert_issuer_error_zone = document.getElementById('cert-issuer-error-zone')
+    const cert_year_error_zone = document.getElementById('cert-year-error-zone')
+
+    // clear error zone
+    cert_title_error_zone.textContent = ""
+    cert_issuer_error_zone.textContent = ""
+    cert_year_error_zone.textContent = ""
+
+
+
+
+
+    const strRegex = /^[A-Za-z]$/
+    const dateRegex = /^\d{4}$/
+    let hasError = true;
+
+    // Check all fields
+    if (cert_title === "") {
+        cert_title_error_zone.textContent = "Please enter your Certification title";
+        hasError = false;
+    }
+    if (cert_issuer === "") {
+        cert_issuer_error_zone.textContent = "Please enter your issuer ";
+        hasError = false;
+    }
+    if (cert_year === '') {
+        cert_year_error_zone.textContent = "Plear enter the year"
+        hasError = false;
+    } else if (!dateRegex.test(Number(cert_year))) {
+        cert_year_error_zone.textContent = "invalide date format (YYYY)"
+        hasError = false;
+    }
+
+    return hasError;
+
+
+
+
+}
+// projects form validation
+export function projects_form_validation() {
+
+    // projects  form validation
+    // user value 
+    const project_name = document.getElementById('project-name').value;
+    const project_link = document.getElementById('project-link').value;
+    const project_desc = document.getElementById('project-desc').value;
+
+
+    // error areas
+    const project_name_error_zone = document.getElementById('project_name_error_zone')
+    const project_link_error_zone = document.getElementById('project_link_error_zone')
+    const project_desc_error_zone = document.getElementById('project_desc_error_zone')
+
+    // clear error zone
+    project_name_error_zone.textContent = ""
+    project_link_error_zone.textContent = ""
+    project_desc_error_zone.textContent = ""
+
+
+
+
+
+    //  const strRegex = /^[A-Za-z]$/
+    //  const dateRegex = /^\d{4}$/
+    let hasError = true;
+
+    // Check all fields
+    if (project_name === "") {
+        project_name_error_zone.textContent = "Please enter your Certification title";
+        hasError = false;
+    }
+    if (project_link === "") {
+        project_link_error_zone.textContent = "Please enter your issuer ";
+        hasError = false;
+    }
+    if (project_desc === '') {
+        project_desc_error_zone.textContent = "Plear enter the year"
+        hasError = false;
+    }
+
+    return hasError;
+
+
+
+}
+
+
+
