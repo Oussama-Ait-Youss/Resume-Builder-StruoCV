@@ -7,6 +7,7 @@
     <title>CV Builder</title>
     <link rel="stylesheet" href="style/style.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- html2pdf CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
 </head>
@@ -78,7 +79,7 @@
                 <!-- STEP 1: Contact Information -->
                 <section class="form-one form-step space-y-6 visible_section">
 
-                    
+
                     <h2 class="text-2xl font-semibold text-gray-800">Contact Information</h2>
                     <p class="text-gray-500">Enter your personal details</p>
 
@@ -151,7 +152,7 @@
                 </section>
                 <!-- STEP 2: Education -->
                 <section class="form-two form-step space-y-6 visible_section">
-                    
+
 
                     <h2 class="text-2xl font-semibold text-gray-800">Education</h2>
                     <p class="text-gray-500">Add your educational background</p>
@@ -431,6 +432,71 @@
                 </section>
             </form>
         </div>
+
+        <!-- Hidden CV template -->
+        <div id="cv-template"
+            class="p-8 max-w-3xl mx-auto bg-white shadow-lg rounded-xl text-gray-800 border border-gray-200">
+
+            <!-- Header -->
+            <div class="flex items-center space-x-6 mb-8">
+                <img id="cv-image" class="w-24 h-24 rounded-full object-cover border-2 border-gray-300" src=""
+                    alt="Profile Photo">
+                <div>
+                    <h1 id="cv-name" class="text-3xl font-bold text-gray-900" aria-label="your name in the cv"></h1>
+                    <p id="cv-email" class="text-sm text-gray-500 mt-1"></p>
+                    <p id="cv-phone" class="text-sm text-gray-500 mt-1"></p>
+                    <p id="cv-address" class="text-sm text-gray-500 mt-1"></p>
+                </div>
+            </div>
+
+            <!-- Education -->
+            <div class="mb-6">
+                <h2 class="text-2xl font-semibold text-gray-900 mb-3 border-b-2 border-gray-200 pb-1">Education</h2>
+                <p id="cv-edu-school" class="font-medium text-gray-800"></p>
+                <p id="cv-edu-degree" class="text-gray-600 mt-1"></p>
+                <p id="cv-edu-years" class="text-gray-400 text-sm mt-1"></p>
+                <p id="cv-edu-desc" class="text-gray-700 mt-2"></p>
+            </div>
+
+            <!-- Experience -->
+            <div class="mb-6">
+                <h2 class="text-2xl font-semibold text-gray-900 mb-3 border-b-2 border-gray-200 pb-1">Experience</h2>
+                <p id="cv-exp-company" class="font-medium text-gray-800"></p>
+                <p id="cv-exp-position" class="text-gray-600 mt-1"></p>
+                <p id="cv-exp-years" class="text-gray-400 text-sm mt-1"></p>
+                <p id="cv-exp-desc" class="text-gray-700 mt-2"></p>
+            </div>
+
+            <!-- Skills -->
+            <div class="mb-6">
+                <h2 class="text-2xl font-semibold text-gray-900 mb-3 border-b-2 border-gray-200 pb-1">Skills</h2>
+                <p id="cv-skills-technical" class="text-gray-700 mt-1"></p>
+                <p id="cv-skills-soft" class="text-gray-700 mt-1"></p>
+            </div>
+
+            <!-- Languages -->
+            <div class="mb-6">
+                <h2 class="text-2xl font-semibold text-gray-900 mb-3 border-b-2 border-gray-200 pb-1">Languages</h2>
+                <p id="cv-languages" class="text-gray-700 mt-1"></p>
+            </div>
+
+            <!-- Certificates -->
+            <div class="mb-6">
+                <h2 class="text-2xl font-semibold text-gray-900 mb-3 border-b-2 border-gray-200 pb-1">Certificates</h2>
+                <p id="cv-cert-title" class="font-medium text-gray-800"></p>
+                <p id="cv-cert-issuer" class="text-gray-600 mt-1"></p>
+                <p id="cv-cert-year" class="text-gray-400 text-sm mt-1"></p>
+            </div>
+
+            <!-- Projects -->
+            <div class="mb-6">
+                <h2 class="text-2xl font-semibold text-gray-900 mb-3 border-b-2 border-gray-200 pb-1">Projects</h2>
+                <p id="cv-project-name" class="font-medium text-gray-800"></p>
+                <p id="cv-project-link" class="text-blue-600 underline mt-1"></p>
+                <p id="cv-project-desc" class="text-gray-700 mt-2"></p>
+            </div>
+        </div>
+
 
 
 

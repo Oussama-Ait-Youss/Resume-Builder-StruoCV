@@ -4,116 +4,18 @@ import { exp_form_validation } from "./form-validation.js"
 import { certification_form_validation } from "./form-validation.js"
 import { languages_form_validation } from "./form-validation.js"
 import { projects_form_validation } from "./form-validation.js"
-
-
-
-
-
-// #############################################
-
-function save_data_localstorage() {
-  const info_first_name = document.getElementById("first-name").value.trim();
-  const info_last_name = document.getElementById("last-name").value.trim();
-  const info_email = document.getElementById("email").value.trim();
-  const info_address = document.getElementById("address").value.trim();
-  const info_phone = document.getElementById("phone").value.trim();
-  const info_dropzone_file = document.getElementById('dropzone-file');
-
-  const edu_school = document.getElementById("school").value.trim();
-  const edu_diploma = document.getElementById("degree").value.trim();
-  const edu_start_year = document.getElementById("edu-start").value.trim();
-  const edu_end_year = document.getElementById("edu-end").value.trim();
-  const edu_description = document.getElementById("edu-description").value.trim();
-
-  const exp_company = document.getElementById("company").value.trim();
-  const exp_position = document.getElementById("position").value.trim();
-  const exp_start_year = document.getElementById("exp-start").value.trim();
-  const exp_end_year = document.getElementById("exp-end").value.trim();
-  const exp_description = document.getElementById("exp-description").value.trim();
-
-
-  const technical_skills = document.getElementById('technical-skills').value;
-  const soft_skills = document.getElementById('soft-skills').value;
-  const skills_list_error_zone = document.getElementById('skills-list-error-zone');
-  const tech_skills_error_zone = document.getElementById('tech-skills-error-zone');
-
-  const language_name = document.getElementById('language-name').value;
-  const language_level = document.getElementById('language-level').value;
-  const language_name_error_zone = document.getElementById('language-name-error-zone');
-  const language_level_error_zone = document.getElementById('language-level-error-zone');
-
-  const cert_title = document.getElementById('cert-title').value;
-  const cert_issuer = document.getElementById('cert-issuer').value;
-  const cert_year = document.getElementById('cert-year').value;
-
-  const project_name = document.getElementById('project-name').value;
-  const project_link = document.getElementById('project-link').value;
-  const project_desc = document.getElementById('project-desc').value;
-
-
-
-
-
-  let user = {
-    info: {
-      firstName: info_first_name,
-      lastName: info_last_name,
-      email: info_email,
-      address: info_address,
-      phone: info_phone,
-      image: info_dropzone_file.files?.[0] ? info_dropzone_file.files[0].name : null
-    },
-
-    education: {
-      school: edu_school,
-      diploma: edu_diploma,
-      start: edu_start_year,
-      end: edu_end_year,
-      description: edu_description
-    },
-
-    experience: {
-      company: exp_company,
-      position: exp_position,
-      start: exp_start_year,
-      end: exp_end_year,
-      description: exp_description
-    },
-
-    skills: {
-      technical: technical_skills,
-      soft: soft_skills
-    },
-
-    languages: {
-      name: language_name,
-      level: language_level
-    },
-
-    certificates: {
-      title: cert_title,
-      issuer: cert_issuer,
-      year: cert_year
-    },
-
-    projects: {
-      name: project_name,
-      link: project_link,
-      description: project_desc
-    }
-  };
-
-  localStorage.setItem("user", JSON.stringify(user));
-}
-// #############################################
+import { save_data_localstorage } from "../js/save_data_localstorage.js"
 
 
 
 
 
 
-const forms =
-  document.querySelectorAll('.form-one, .form-two, .form-three, .form-four, .form-five, .form-six, .form-seven, .form-final');
+
+
+
+
+const forms = document.querySelectorAll('.form-one, .form-two, .form-three, .form-four, .form-five, .form-six, .form-seven, .form-final');
 let currentForm = 0;
 
 // Select ALL next and previous buttons
@@ -152,11 +54,30 @@ fileInput.addEventListener('change', function () {
 });
 
 
+// function to activate the step in the progress bar
+function activateStep(stepIndex) {
+  const steps = document.querySelectorAll('ol li');
+
+  steps.forEach((li, index) => {
+    const span = li.querySelector('span');
+
+    if (index === stepIndex) {
+      // ✅ Active step
+      li.classList.add('text-blue-600');
+      span.classList.add('border-blue-600', 'text-blue-600');
+    } else {
+      // ✅ Remove active from others
+      li.classList.remove('text-blue-600');
+      span.classList.remove('border-blue-600', 'text-blue-600');
+    }
+  });
+}
+
+
+
+
 // Attach listeners to all next buttons
 nextBtns.addEventListener('click', (e) => {
-
-
-
   e.preventDefault();
 
   const hasSkills = document.querySelectorAll('skills-list li')
@@ -165,23 +86,6 @@ nextBtns.addEventListener('click', (e) => {
   const fileName = document.getElementById('dropzone-file').value;
   const preview_image = document.getElementById('preview-image')
 
-  function activateStep(stepIndex) {
-    const steps = document.querySelectorAll('ol li');
-
-    steps.forEach((li, index) => {
-      const span = li.querySelector('span');
-
-      if (index === stepIndex) {
-        // ✅ Active step
-        li.classList.add('text-blue-600');
-        span.classList.add('border-blue-600', 'text-blue-600');
-      } else {
-        // ✅ Remove active from others
-        li.classList.remove('text-blue-600');
-        span.classList.remove('border-blue-600', 'text-blue-600');
-      }
-    });
-  }
 
 
 
@@ -226,7 +130,7 @@ nextBtns.addEventListener('click', (e) => {
   // Otherwise → go to next form
   if (currentForm < forms.length - 1) {
     currentForm++;
-    console.log(currentForm)
+    // console.log(currentForm)
     activateStep(currentForm);
     updateForm();
   }
@@ -234,13 +138,13 @@ nextBtns.addEventListener('click', (e) => {
 
 });
 
-// save data in localstorage
 
 // Attach listeners to all previous buttons
 prevBtns.addEventListener('click', (e) => {
   e.preventDefault();
   if (currentForm > 0) {
     currentForm--;
+    activateStep(currentForm)
     updateForm();
   }
 });
@@ -379,6 +283,77 @@ add_btn.addEventListener('click', () => {
                     </div >
     `
 })
+
+
+
+
+
+
+
+
+function fillCVTemplate() {
+  const user = JSON.parse(localStorage.getItem("user"));
+  if (!user) return;
+
+  // Personal info
+  document.getElementById("cv-name").textContent = `${user.info.firstName} ${user.info.lastName}`;
+  document.getElementById("cv-email").textContent = user.info.email;
+  document.getElementById("cv-phone").textContent = user.info.phone;
+  document.getElementById("cv-address").textContent = user.info.address;
+
+  document.getElementById("cv-image").src =previewImage.src;
+
+
+  // Education
+  document.getElementById("cv-edu-school").textContent = user.education.school;
+  document.getElementById("cv-edu-degree").textContent = user.education.diploma;
+  document.getElementById("cv-edu-years").textContent = `${user.education.start} - ${user.education.end}`;
+  document.getElementById("cv-edu-desc").textContent = user.education.description;
+
+  // Experience
+  document.getElementById("cv-exp-company").textContent = user.experience.company;
+  document.getElementById("cv-exp-position").textContent = user.experience.position;
+  document.getElementById("cv-exp-years").textContent = `${user.experience.start} - ${user.experience.end}`;
+  document.getElementById("cv-exp-desc").textContent = user.experience.description;
+
+  // Skills
+  document.getElementById("cv-skills-technical").textContent = `Technical: ${user.skills.technical}`;
+  document.getElementById("cv-skills-soft").textContent = `Soft: ${user.skills.soft}`;
+
+  // Languages
+  document.getElementById("cv-languages").textContent = `${user.languages.name} - ${user.languages.level}`;
+
+  // Certificates
+  document.getElementById("cv-cert-title").textContent = user.certificates.title;
+  document.getElementById("cv-cert-issuer").textContent = user.certificates.issuer;
+  document.getElementById("cv-cert-year").textContent = user.certificates.year;
+
+  // Projects
+  document.getElementById("cv-project-name").textContent = user.projects.name;
+  document.getElementById("cv-project-link").textContent = user.projects.link;
+  document.getElementById("cv-project-desc").textContent = user.projects.description;
+}
+
+// ###########################
+// Add click event to generate PDF
+document.getElementById("export-pdf").addEventListener("click", (e) => {
+  e.preventDefault();
+  fillCVTemplate(); // Fill the hidden CV template with data from localStorage
+
+  const element = document.getElementById("cv-template");
+
+  const options = {
+    filename: 'my-cv.pdf',
+    image: { type: 'pdf'},
+    // html2canvas: { scale: 1 },
+    jsPDF: { unit: 'cm', format: 'a4', orientation: 'portrait' }
+  };
+
+  html2pdf().set(options).from(element).save();
+});
+
+
+
 
 
 

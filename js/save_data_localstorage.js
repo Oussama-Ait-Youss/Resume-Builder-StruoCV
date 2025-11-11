@@ -1,6 +1,6 @@
 // #############################################
 
-function save_data_localstorage() {
+export function save_data_localstorage() {
 
 
   // contact info

@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@tailwindcss/cli": "^4.1.16",
+    "js-html2pdf": "^1.1.4",
     "tailwindcss": "^4.1.16"
   }
 }
