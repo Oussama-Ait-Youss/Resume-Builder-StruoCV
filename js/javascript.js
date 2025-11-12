@@ -146,7 +146,6 @@ nextBtns.addEventListener('click', (e) => {
     valid = projects_form_validation();
     save_data_localstorage();
     fillCVTemplate();
-    fillCVTemplate();
   } else if (currentForm == 7) {
     // code
     save_data_localstorage();
@@ -158,11 +157,9 @@ nextBtns.addEventListener('click', (e) => {
 
 
 
-
   // Otherwise → go to next form
   if (valid && currentForm < forms.length - 1) {
     currentForm++;
-    // console.log(currentForm)
     activateStep(currentForm);
     updateForm();
   }
@@ -323,6 +320,10 @@ add_btn.addEventListener('click', () => {
 
 
 
+
+
+
+// function to fill cvtemplate in html
 function fillCVTemplate() {
   const user = JSON.parse(localStorage.getItem("user"));
   if (!user) return;
@@ -370,20 +371,24 @@ function fillCVTemplate() {
 // Add click event to generate PDF
 document.getElementById("export-pdf").addEventListener("click", (e) => {
   e.preventDefault();
-  fillCVTemplate(); // Fill the hidden CV template with data
+  fillCVTemplate();
 
   const element = document.getElementById("cv-template");
 
+
   const options = {
-    filename: 'my-cv.pdf',
-    image: { type: 'jpeg', quality: 1 },
-    html2canvas: { scale: 2 },
-    jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' },
-    margin: [0.2, 0.2, 0.2, 0.2]
+    filename: "my-cv.pdf",
+    margin: 0,
+    image: { type: "jpeg", quality: 1 },
+    html2canvas: { scale: 1, useCORS: true, scrollY: 0 },
+    jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
   };
 
-  html2pdf().set(options).from(element).save();
+  html2pdf().set(options).from(element).save().then(() => {
+  });
 });
+
+
 
 
 

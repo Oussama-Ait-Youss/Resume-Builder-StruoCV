@@ -1,22 +1,144 @@
-//regex object
-const validators = {
-  str: {
-    regex: /^[A-Za-z]$/,
-    errorMessage: "Only a single alphabet character is allowed."
-  },
-  email: {
-    regex: /^[a-zA-Z0-9_-]+@(gmail|outlook|hotmail)\.com$/,
-    errorMessage: "Email must be a valid Gmail, Outlook, or Hotmail address."
-  },
-  phone: {
-    regex: /^\+212[6-7]\d{8}$/,
-    errorMessage: "Phone number must start with +212 and be followed by 6 or 7, then 8 digits."
-  },
-  date: {
-    regex: /\d{4}/,
-    errorMessage: "Date must be in the format of four digits (YYYY)."
-  }
-};
+
+// const validators = {
+//   str: {
+//     regex: /^[A-Za-z]$/,
+//     errorMessage: "Only a single alphabet character is allowed."
+//   },
+//   email: {
+//     regex: /^[a-zA-Z0-9_-]+@(gmail|outlook|hotmail)\.com$/,
+//     errorMessage: "Email must be a valid Gmail, Outlook, or Hotmail address."
+//   },
+//   phone: {
+//     regex: /^\+212[6-7]\d{8}$/,
+//     errorMessage: "Phone number must start with +212 and be followed by 6 or 7, then 8 digits."
+//   },
+//   date: {
+//     regex: /\d{4}/,
+//     errorMessage: "Date must be in the format of four digits (YYYY)."
+//   }
+// };
+
+
+
+
+// const errorMessages = {
+//   contact: {
+//     firstName: {
+//       empty: "Please enter your first name",
+//       invalid: "invalid input"
+//     },
+//     lastName: {
+//       empty: "Please enter your last name",
+//       invalid: "invalid input"
+//     },
+//     email: {
+//       empty: "Please enter your email",
+//       invalid: "invalid email format (example@gmail.com)"
+//     },
+//     address: {
+//       empty: "Please enter your address",
+//       invalid: "invalid input"
+//     },
+//     phone: {
+//       empty: "Please enter your phone number",
+//       invalid: "invalid phone format (+212612345678)"
+//     },
+//     photo: {
+//       empty: "Please add your photo",
+//       invalid: "Only types are accepted: jpg, jpeg, png, pdf"
+//     }
+//   },
+
+//   education: {
+//     school: {
+//       empty: "Please enter your first name",
+//       invalid: "invalid input"
+//     },
+//     diploma: {
+//       empty: "Please add your photo",
+//       invalid: "invalid input"
+//     },
+//     startYear: {
+//       empty: "Please enter your last name",
+//       invalid: "invalid date"
+//     },
+//     endYear: {
+//       empty: "Please enter your last name",
+//       invalid: "invalid date"
+//     },
+//     description: {
+//       empty: "Please enter your last name",
+//       invalid: "invalid input"
+//     }
+//   },
+
+//   experience: {
+//     company: {
+//       empty: "Please enter company name",
+//       invalid: "invalid input"
+//     },
+//     position: {
+//       empty: "Please add your position",
+//       invalid: "invalid input"
+//     },
+//     startYear: {
+//       empty: "invalid date",
+//       invalid: "invalid date format"
+//     },
+//     endYear: {
+//       empty: "Please enter the date",
+//       invalid: "invalid date format"
+//     },
+//     description: {
+//       empty: "Please fill this form",
+//       invalid: "invalid input"
+//     }
+//   },
+
+//   skills: {
+//     technical: {
+//       empty: "Please enter your technical skill"
+//     },
+//     soft: {
+//       empty: "Please select a soft skill"
+//     }
+//   },
+
+//   languages: {
+//     name: {
+//       empty: "Please enter your technical skill"
+//     },
+//     level: {
+//       empty: "Please select a soft skill"
+//     }
+//   },
+
+//   certification: {
+//     title: {
+//       empty: "Please enter your Certification title"
+//     },
+//     issuer: {
+//       empty: "Please enter your issuer"
+//     },
+//     year: {
+//       empty: "Please enter the year",
+//       invalid: "invalid date format (YYYY)"
+//     }
+//   },
+
+//   projects: {
+//     name: {
+//       empty: "Please enter your Certification title"
+//     },
+//     link: {
+//       empty: "Please enter your issuer"
+//     },
+//     description: {
+//       empty: "Please enter the year"
+//     }
+//   }
+// };
+
 
 
 
@@ -50,16 +172,16 @@ export function info_form_validation() {
     info_phone_error_zone.textContent = "";
     info_photo_error_zone.textContent = "";
 
-    // const strRegex = /^[A-Za-z]$/
+    const strRegex = /^[A-Za-z]$/
     let hasError = true;
 
     // Check all fields
     if (info_first_name === "") {
         info_first_name_error_zone.textContent = "Please enter your first name";
         hasError = false;
-    } else if (validators.str.regex.test(info_first_name)) {
+    } else if (strRegex.test(info_first_name)) {
 
-        info_first_name_error_zone.textContent = validators.str.errorMessage;
+        info_first_name_error_zone.textContent = "invalide input";
         hasError = false;
 
     }
@@ -87,23 +209,18 @@ export function info_form_validation() {
     if (info_last_name === "") {
         info_last_name_error_zone.textContent = "Please enter your last name";
         hasError = false;
-    } else if (validators.str.regex.test(info_last_name)) {
-
-        info_first_name_error_zone.textContent = validators.str.errorMessage;
-        hasError = false;
-
     }
 
 
-    // const emailRegex = /^[a-zA-Z0-9_-]+@(gmail|outlook|hotmail)\.com$/;
+    const emailRegex = /^[a-zA-Z0-9_-]+@(gmail|outlook|hotmail)\.com$/;
 
 
     if (info_email === "") {
         info_email_error_zone.textContent = "Please enter your email";
         hasError = false;
-    } else if (!validators.email.regex.test(info_email)) {
+    } else if (!emailRegex.test(info_email)) {
 
-        info_email_error_zone.textContent = validators.email.errorMessage;
+        info_email_error_zone.textContent = "invalid email format (example@gmail.com)";
         hasError = false;
     }
 
@@ -113,13 +230,13 @@ export function info_form_validation() {
     }
 
 
-    // const phoneRegex = /^\+212[6-7]\d{8}$/;
+    const phoneRegex = /^\+212[6-7]\d{8}$/;
 
     if (info_phone === "") {
         info_phone_error_zone.textContent = "Please enter your phone number";
         hasError = false;
-    } else if (!validators.phone.regex.test(info_phone)) {
-        info_phone_error_zone.textContent = validators.phone.errorMessage;
+    } else if (!phoneRegex.test(info_phone)) {
+        info_phone_error_zone.textContent = "invalide phone format (+212612345678)";
         hasError = false;
     }
     return hasError;
@@ -154,8 +271,8 @@ export function edu_form_validation() {
     edu_description_error_zone.textContent = "";
 
 
-    // const strRegex = /[A-Za-z]/;
-    // const dateRegex = /\d{4}/;
+    const strRegex = /[A-Za-z]/;
+    const dateRegex = /\d{4}/;
 
 
 
@@ -172,7 +289,7 @@ export function edu_form_validation() {
 
     if (edu_diploma === "") {
 
-        edu_diploma_error_zone.textContent = "Please add your diplom "
+        edu_diploma_error_zone.textContent = "Please add your photo"
         hasError = false;
 
     } else if (!strRegex.test(edu_diploma)) {
@@ -186,8 +303,8 @@ export function edu_form_validation() {
         edu_start_year_error_zone.textContent = "Please enter your last name";
         hasError = false;
 
-    } else if (!validators.date.regex.test(Number(edu_start_year))) {
-        edu_start_year_error_zone.textContent = validators.date.errorMessage;
+    } else if (!dateRegex.test(Number(edu_start_year))) {
+        edu_start_year_error_zone.textContent = "invalide date ";
         hasError = false;
     }
 
@@ -197,8 +314,8 @@ export function edu_form_validation() {
         edu_end_year_error_zone.textContent = "Please enter your last name";
         hasError = false;
 
-    } else if (!validators.date.regex.test(Number(edu_end_year))) {
-        edu_end_year_error_zone.textContent = validators.date.errorMessage;
+    } else if (!dateRegex.test(Number(edu_end_year))) {
+        edu_end_year_error_zone.textContent = "invalide date";
         hasError = false;
     }
 
@@ -207,9 +324,9 @@ export function edu_form_validation() {
         edu_description_error_zone.textContent = "Please enter your last name";
         hasError = false;
 
-    } else if (!validators.str.regex.test(edu_description)) {
+    } else if (!strRegex.test(edu_description)) {
 
-        edu_description.textContent = validators.str.errorMessage;
+        edu_description.textContent = "invalide input";
         hasError = false;
 
     }
