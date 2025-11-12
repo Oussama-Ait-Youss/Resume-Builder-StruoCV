@@ -59,19 +59,35 @@ function activateStep(stepIndex) {
   const steps = document.querySelectorAll('ol li');
 
   steps.forEach((li, index) => {
-    const span = li.querySelector('span');
+    const circle = li.querySelector('div > div'); // the circle div
+    const number = li.querySelector('div > div > span'); // the number inside the circle
+    const label = li.querySelector('span.mt-2'); // the step label
 
-    if (index === stepIndex) {
-      // ✅ Active step
+    if (index <= stepIndex) {
+      // ✅ Active or completed step
       li.classList.add('text-blue-600');
-      span.classList.add('border-blue-600', 'text-blue-600');
+      circle.classList.replace('bg-gray-100', 'bg-blue-100');
+      number.classList.replace('text-gray-700', 'text-blue-700');
+      label.classList.replace('text-gray-500', 'text-blue-600');
+
+      // Change connecting line color to blue (Tailwind)
+      li.classList.remove('after:border-gray-200');
+      li.classList.add('after:border-blue-500');
+
     } else {
-      // ✅ Remove active from others
+      // ❌ Inactive step
       li.classList.remove('text-blue-600');
-      span.classList.remove('border-blue-600', 'text-blue-600');
+      circle.classList.replace('bg-blue-100', 'bg-gray-100');
+      number.classList.replace('text-blue-700', 'text-gray-700');
+      label.classList.replace('text-blue-600', 'text-gray-500');
+
+      // Change connecting line color back to gray
+      li.classList.remove('after:border-blue-500');
+      li.classList.add('after:border-gray-200');
     }
   });
 }
+
 
 
 
@@ -102,23 +118,39 @@ nextBtns.addEventListener('click', (e) => {
   let valid = false;
   if (currentForm == 0) {
     valid = info_form_validation();
+    save_data_localstorage();
+    fillCVTemplate();
   } else if (currentForm == 1) {
     valid = edu_form_validation();
+    save_data_localstorage();
+    fillCVTemplate();
   } else if (currentForm == 2) {
     valid = exp_form_validation();
+    save_data_localstorage();
+    fillCVTemplate();
   } else if (currentForm == 3) {
     valid = skills_form_validation() || hasSkills;
+    save_data_localstorage();
+    fillCVTemplate();
   } else if (currentForm == 4) {
     valid = languages_form_validation() || hasLanguage
+    save_data_localstorage();
+    fillCVTemplate();
   } else if (currentForm == 5) {
     // code
     valid = certification_form_validation();
+    save_data_localstorage();
+    fillCVTemplate();
   } else if (currentForm == 6) {
     // code
     valid = projects_form_validation();
+    save_data_localstorage();
+    fillCVTemplate();
+    fillCVTemplate();
   } else if (currentForm == 7) {
     // code
     save_data_localstorage();
+    fillCVTemplate();
   }
 
 
@@ -128,7 +160,7 @@ nextBtns.addEventListener('click', (e) => {
 
 
   // Otherwise → go to next form
-  if (currentForm < forms.length - 1) {
+  if (valid && currentForm < forms.length - 1) {
     currentForm++;
     // console.log(currentForm)
     activateStep(currentForm);
@@ -301,7 +333,7 @@ function fillCVTemplate() {
   document.getElementById("cv-phone").textContent = user.info.phone;
   document.getElementById("cv-address").textContent = user.info.address;
 
-  document.getElementById("cv-image").src =previewImage.src;
+  document.getElementById("cv-image").src = previewImage.src;
 
 
   // Education
@@ -338,19 +370,21 @@ function fillCVTemplate() {
 // Add click event to generate PDF
 document.getElementById("export-pdf").addEventListener("click", (e) => {
   e.preventDefault();
-  fillCVTemplate(); // Fill the hidden CV template with data from localStorage
+  fillCVTemplate(); // Fill the hidden CV template with data
 
   const element = document.getElementById("cv-template");
 
   const options = {
     filename: 'my-cv.pdf',
-    image: { type: 'pdf'},
-    // html2canvas: { scale: 1 },
-    jsPDF: { unit: 'cm', format: 'a4', orientation: 'portrait' }
+    image: { type: 'jpeg', quality: 1 },
+    html2canvas: { scale: 2 },
+    jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' },
+    margin: [0.2, 0.2, 0.2, 0.2]
   };
 
   html2pdf().set(options).from(element).save();
 });
+
 
 
 

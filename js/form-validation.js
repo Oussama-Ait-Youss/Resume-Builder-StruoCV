@@ -1,6 +1,22 @@
-
-
-
+//regex object
+const validators = {
+  str: {
+    regex: /^[A-Za-z]$/,
+    errorMessage: "Only a single alphabet character is allowed."
+  },
+  email: {
+    regex: /^[a-zA-Z0-9_-]+@(gmail|outlook|hotmail)\.com$/,
+    errorMessage: "Email must be a valid Gmail, Outlook, or Hotmail address."
+  },
+  phone: {
+    regex: /^\+212[6-7]\d{8}$/,
+    errorMessage: "Phone number must start with +212 and be followed by 6 or 7, then 8 digits."
+  },
+  date: {
+    regex: /\d{4}/,
+    errorMessage: "Date must be in the format of four digits (YYYY)."
+  }
+};
 
 
 
@@ -34,16 +50,16 @@ export function info_form_validation() {
     info_phone_error_zone.textContent = "";
     info_photo_error_zone.textContent = "";
 
-    const strRegex = /^[A-Za-z]$/
+    // const strRegex = /^[A-Za-z]$/
     let hasError = true;
 
     // Check all fields
     if (info_first_name === "") {
         info_first_name_error_zone.textContent = "Please enter your first name";
         hasError = false;
-    } else if (strRegex.test(info_first_name)) {
+    } else if (validators.str.regex.test(info_first_name)) {
 
-        info_first_name_error_zone.textContent = "invalide input";
+        info_first_name_error_zone.textContent = validators.str.errorMessage;
         hasError = false;
 
     }
@@ -71,18 +87,23 @@ export function info_form_validation() {
     if (info_last_name === "") {
         info_last_name_error_zone.textContent = "Please enter your last name";
         hasError = false;
+    } else if (validators.str.regex.test(info_last_name)) {
+
+        info_first_name_error_zone.textContent = validators.str.errorMessage;
+        hasError = false;
+
     }
 
 
-    const emailRegex = /^[a-zA-Z0-9_-]+@(gmail|outlook|hotmail)\.com$/;
+    // const emailRegex = /^[a-zA-Z0-9_-]+@(gmail|outlook|hotmail)\.com$/;
 
 
     if (info_email === "") {
         info_email_error_zone.textContent = "Please enter your email";
         hasError = false;
-    } else if (!emailRegex.test(info_email)) {
+    } else if (!validators.email.regex.test(info_email)) {
 
-        info_email_error_zone.textContent = "invalid email format (example@gmail.com)";
+        info_email_error_zone.textContent = validators.email.errorMessage;
         hasError = false;
     }
 
@@ -92,13 +113,13 @@ export function info_form_validation() {
     }
 
 
-    const phoneRegex = /^\+212[6-7]\d{8}$/;
+    // const phoneRegex = /^\+212[6-7]\d{8}$/;
 
     if (info_phone === "") {
         info_phone_error_zone.textContent = "Please enter your phone number";
         hasError = false;
-    } else if (!phoneRegex.test(info_phone)) {
-        info_phone_error_zone.textContent = "invalide phone format (+212612345678)";
+    } else if (!validators.phone.regex.test(info_phone)) {
+        info_phone_error_zone.textContent = validators.phone.errorMessage;
         hasError = false;
     }
     return hasError;
@@ -133,8 +154,8 @@ export function edu_form_validation() {
     edu_description_error_zone.textContent = "";
 
 
-    const strRegex = /[A-Za-z]/;
-    const dateRegex = /\d{4}/;
+    // const strRegex = /[A-Za-z]/;
+    // const dateRegex = /\d{4}/;
 
 
 
@@ -151,7 +172,7 @@ export function edu_form_validation() {
 
     if (edu_diploma === "") {
 
-        edu_diploma_error_zone.textContent = "Please add your photo"
+        edu_diploma_error_zone.textContent = "Please add your diplom "
         hasError = false;
 
     } else if (!strRegex.test(edu_diploma)) {
@@ -165,8 +186,8 @@ export function edu_form_validation() {
         edu_start_year_error_zone.textContent = "Please enter your last name";
         hasError = false;
 
-    } else if (!dateRegex.test(Number(edu_start_year))) {
-        edu_start_year_error_zone.textContent = "invalide date ";
+    } else if (!validators.date.regex.test(Number(edu_start_year))) {
+        edu_start_year_error_zone.textContent = validators.date.errorMessage;
         hasError = false;
     }
 
@@ -176,8 +197,8 @@ export function edu_form_validation() {
         edu_end_year_error_zone.textContent = "Please enter your last name";
         hasError = false;
 
-    } else if (!dateRegex.test(Number(edu_end_year))) {
-        edu_end_year_error_zone.textContent = "invalide date";
+    } else if (!validators.date.regex.test(Number(edu_end_year))) {
+        edu_end_year_error_zone.textContent = validators.date.errorMessage;
         hasError = false;
     }
 
@@ -186,9 +207,9 @@ export function edu_form_validation() {
         edu_description_error_zone.textContent = "Please enter your last name";
         hasError = false;
 
-    } else if (!strRegex.test(edu_description)) {
+    } else if (!validators.str.regex.test(edu_description)) {
 
-        edu_description.textContent = "invalide input";
+        edu_description.textContent = validators.str.errorMessage;
         hasError = false;
 
     }
