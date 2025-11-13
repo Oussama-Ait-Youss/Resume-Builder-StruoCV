@@ -155,7 +155,7 @@ nextBtns.addEventListener('click', (e) => {
 
 
   // Otherwise → go to next form
-  if (currentForm < forms.length - 1) {
+  if (valid && currentForm < forms.length - 1) {
     currentForm++;
     activateStep(currentForm);
     updateForm();
