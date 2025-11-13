@@ -9,12 +9,6 @@ import { save_data_localstorage } from "../js/save_data_localstorage.js"
 
 
 
-
-
-
-
-
-
 const forms = document.querySelectorAll('.form-one, .form-two, .form-three, .form-four, .form-five, .form-six, .form-seven, .form-final');
 let currentForm = 0;
 
@@ -64,7 +58,7 @@ function activateStep(stepIndex) {
     const label = li.querySelector('span.mt-2'); // the step label
 
     if (index <= stepIndex) {
-      // ✅ Active or completed step
+      //  Active or completed step
       li.classList.add('text-blue-600');
       circle.classList.replace('bg-gray-100', 'bg-blue-100');
       number.classList.replace('text-gray-700', 'text-blue-700');
@@ -75,7 +69,7 @@ function activateStep(stepIndex) {
       li.classList.add('after:border-blue-500');
 
     } else {
-      // ❌ Inactive step
+      //  Inactive step
       li.classList.remove('text-blue-600');
       circle.classList.replace('bg-blue-100', 'bg-gray-100');
       number.classList.replace('text-blue-700', 'text-gray-700');
@@ -146,9 +140,12 @@ nextBtns.addEventListener('click', (e) => {
     valid = projects_form_validation();
     save_data_localstorage();
     fillCVTemplate();
+    const nextBtn = document.getElementById('next-btn');
+    if (nextBtn) {
+      nextBtn.classList.add('hidden');
+    }
   } else if (currentForm == 7) {
     // code
-    save_data_localstorage();
     fillCVTemplate();
   }
 
@@ -158,7 +155,7 @@ nextBtns.addEventListener('click', (e) => {
 
 
   // Otherwise → go to next form
-  if (valid && currentForm < forms.length - 1) {
+  if (currentForm < forms.length - 1) {
     currentForm++;
     activateStep(currentForm);
     updateForm();
@@ -363,6 +360,7 @@ function fillCVTemplate() {
 
   // Projects
   document.getElementById("cv-project-name").textContent = user.projects.name;
+  document.getElementById("cv-project-link").setAttribute('href', user.projects.link);
   document.getElementById("cv-project-link").textContent = user.projects.link;
   document.getElementById("cv-project-desc").textContent = user.projects.description;
 }
@@ -379,9 +377,10 @@ document.getElementById("export-pdf").addEventListener("click", (e) => {
   const options = {
     filename: "my-cv.pdf",
     margin: 0,
-    image: { type: "jpeg", quality: 1 },
+    image: { type: "pdf", quality: 1 },
     html2canvas: { scale: 1, useCORS: true, scrollY: 0 },
     jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
+    enableLinks: true,
   };
 
   html2pdf().set(options).from(element).save().then(() => {

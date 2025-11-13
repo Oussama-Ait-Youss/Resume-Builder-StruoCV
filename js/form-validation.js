@@ -1,143 +1,142 @@
 
-// const validators = {
-//   str: {
-//     regex: /^[A-Za-z]$/,
-//     errorMessage: "Only a single alphabet character is allowed."
-//   },
-//   email: {
-//     regex: /^[a-zA-Z0-9_-]+@(gmail|outlook|hotmail)\.com$/,
-//     errorMessage: "Email must be a valid Gmail, Outlook, or Hotmail address."
-//   },
-//   phone: {
-//     regex: /^\+212[6-7]\d{8}$/,
-//     errorMessage: "Phone number must start with +212 and be followed by 6 or 7, then 8 digits."
-//   },
-//   date: {
-//     regex: /\d{4}/,
-//     errorMessage: "Date must be in the format of four digits (YYYY)."
-//   }
-// };
+const validators = {
+    str: {
+        regex: /^[A-Za-z\s]+$/
+    },
+    email: {
+        regex: /^[a-zA-Z0-9_-]+@(gmail|outlook|hotmail)\.com$/
+    },
+    phone: {
+        regex: /^\+212[6-7]\d{8}$/
+    },
+    date: {
+        regex: /\d{4}/
+    },
+    link: {
+        regex:/^https\:\/\/[A-Za-z0-9._~:/?#[\]@!$&'()*+,;=%-]+$/
+    }
+};
 
 
 
 
-// const errorMessages = {
-//   contact: {
-//     firstName: {
-//       empty: "Please enter your first name",
-//       invalid: "invalid input"
-//     },
-//     lastName: {
-//       empty: "Please enter your last name",
-//       invalid: "invalid input"
-//     },
-//     email: {
-//       empty: "Please enter your email",
-//       invalid: "invalid email format (example@gmail.com)"
-//     },
-//     address: {
-//       empty: "Please enter your address",
-//       invalid: "invalid input"
-//     },
-//     phone: {
-//       empty: "Please enter your phone number",
-//       invalid: "invalid phone format (+212612345678)"
-//     },
-//     photo: {
-//       empty: "Please add your photo",
-//       invalid: "Only types are accepted: jpg, jpeg, png, pdf"
-//     }
-//   },
+const errorMessages = {
+    contact: {
+        firstName: {
+            empty: "Please enter your first name",
+            invalid: "invalid input"
+        },
+        lastName: {
+            empty: "Please enter your last name",
+            invalid: "invalid input"
+        },
+        email: {
+            empty: "Please enter your email",
+            invalid: "invalid email format (example@gmail.com)"
+        },
+        address: {
+            empty: "Please enter your address",
+            invalid: "invalid input"
+        },
+        phone: {
+            empty: "Please enter your phone number",
+            invalid: "invalid phone format (+212612345678)"
+        },
+        photo: {
+            empty: "Please add your photo",
+            invalid: "Only types are accepted: jpg, jpeg, png, pdf"
+        }
+    },
 
-//   education: {
-//     school: {
-//       empty: "Please enter your first name",
-//       invalid: "invalid input"
-//     },
-//     diploma: {
-//       empty: "Please add your photo",
-//       invalid: "invalid input"
-//     },
-//     startYear: {
-//       empty: "Please enter your last name",
-//       invalid: "invalid date"
-//     },
-//     endYear: {
-//       empty: "Please enter your last name",
-//       invalid: "invalid date"
-//     },
-//     description: {
-//       empty: "Please enter your last name",
-//       invalid: "invalid input"
-//     }
-//   },
+    education: {
+        school: {
+            empty: "Please enter your first name",
+            invalid: "invalid input"
+        },
+        diploma: {
+            empty: "Please add your photo",
+            invalid: "invalid input"
+        },
+        startYear: {
+            empty: "Please enter your last name",
+            invalid: "invalid date"
+        },
+        endYear: {
+            empty: "Please enter your last name",
+            invalid: "invalid date"
+        },
+        description: {
+            empty: "Please enter your last name",
+            invalid: "invalid input"
+        }
+    },
 
-//   experience: {
-//     company: {
-//       empty: "Please enter company name",
-//       invalid: "invalid input"
-//     },
-//     position: {
-//       empty: "Please add your position",
-//       invalid: "invalid input"
-//     },
-//     startYear: {
-//       empty: "invalid date",
-//       invalid: "invalid date format"
-//     },
-//     endYear: {
-//       empty: "Please enter the date",
-//       invalid: "invalid date format"
-//     },
-//     description: {
-//       empty: "Please fill this form",
-//       invalid: "invalid input"
-//     }
-//   },
+    experience: {
+        company: {
+            empty: "Please enter company name",
+            invalid: "invalid input"
+        },
+        position: {
+            empty: "Please add your position",
+            invalid: "invalid input"
+        },
+        startYear: {
+            empty: "invalid date",
+            invalid: "invalid date"
+        },
+        endYear: {
+            empty: "Please enter the date",
+            invalid: "invalid date"
+        },
+        description: {
+            empty: "Please fill this form",
+            invalid: "invalid input"
+        }
+    },
 
-//   skills: {
-//     technical: {
-//       empty: "Please enter your technical skill"
-//     },
-//     soft: {
-//       empty: "Please select a soft skill"
-//     }
-//   },
+    skills: {
+        technical: {
+            empty: "Please enter your technical skill"
+        },
+        soft: {
+            empty: "Please select a soft skill"
+        }
+    },
 
-//   languages: {
-//     name: {
-//       empty: "Please enter your technical skill"
-//     },
-//     level: {
-//       empty: "Please select a soft skill"
-//     }
-//   },
+    languages: {
+        name: {
+            empty: "Please enter your technical skill"
+        },
+        level: {
+            empty: "Please select a soft skill"
+        }
+    },
 
-//   certification: {
-//     title: {
-//       empty: "Please enter your Certification title"
-//     },
-//     issuer: {
-//       empty: "Please enter your issuer"
-//     },
-//     year: {
-//       empty: "Please enter the year",
-//       invalid: "invalid date format (YYYY)"
-//     }
-//   },
+    certification: {
+        title: {
+            empty: "Please enter your Certification title"
+        },
+        issuer: {
+            empty: "Please enter your issuer"
+        },
+        year: {
+            empty: "Please enter the year",
+            invalid: "invalid date format (YYYY)"
+        }
+    },
 
-//   projects: {
-//     name: {
-//       empty: "Please enter your Certification title"
-//     },
-//     link: {
-//       empty: "Please enter your issuer"
-//     },
-//     description: {
-//       empty: "Please enter the year"
-//     }
-//   }
-// };
+    projects: {
+        name: {
+            empty: "Please enter your Certification title"
+        },
+        link: {
+            empty: "Please enter your issuer"
+        },
+        description: {
+            empty: "Please enter the year"
+        }
+    }
+};
 
 
 
@@ -172,16 +171,16 @@ export function info_form_validation() {
     info_phone_error_zone.textContent = "";
     info_photo_error_zone.textContent = "";
 
-    const strRegex = /^[A-Za-z]$/
+    // const strRegex = /^[A-Za-z]$/
     let hasError = true;
 
     // Check all fields
     if (info_first_name === "") {
-        info_first_name_error_zone.textContent = "Please enter your first name";
+        info_first_name_error_zone.textContent = errorMessages.contact.firstName.empty;
         hasError = false;
-    } else if (strRegex.test(info_first_name)) {
+    } else if (!validators.str.regex.test(info_first_name)) {
 
-        info_first_name_error_zone.textContent = "invalide input";
+        info_first_name_error_zone.textContent = errorMessages.contact.firstName.invalid;
         hasError = false;
 
     }
@@ -189,7 +188,7 @@ export function info_form_validation() {
 
     const fileName = document.getElementById('dropzone-file').value;
     let ext = fileName.substring(fileName.lastIndexOf('.') + 1).toLowerCase();
-    const file_types = ['jpg','jpeg','png','pdf'];
+    const file_types = ['jpg', 'jpeg', 'png', 'pdf'];
 
 
     if (info_dropzone_file.files.length === 0) {
@@ -207,25 +206,30 @@ export function info_form_validation() {
 
 
     if (info_last_name === "") {
-        info_last_name_error_zone.textContent = "Please enter your last name";
+        info_last_name_error_zone.textContent = errorMessages.contact.lastName.empty;
         hasError = false;
+    } else if (!validators.str.regex.test(info_last_name)) {
+
+        info_last_name_error_zone.textContent = errorMessages.contact.lastName.invalid;
+        hasError = false;
+
     }
 
 
-    const emailRegex = /^[a-zA-Z0-9_-]+@(gmail|outlook|hotmail)\.com$/;
+    // const emailRegex = /^[a-zA-Z0-9_-]+@(gmail|outlook|hotmail)\.com$/;
 
 
     if (info_email === "") {
         info_email_error_zone.textContent = "Please enter your email";
         hasError = false;
-    } else if (!emailRegex.test(info_email)) {
+    } else if (!validators.email.regex.test(info_email)) {
 
-        info_email_error_zone.textContent = "invalid email format (example@gmail.com)";
+        info_email_error_zone.textContent = errorMessages.contact.email.invalid;
         hasError = false;
     }
 
     if (info_address === "") {
-        info_address_error_zone.textContent = "Please enter your address";
+        info_address_error_zone.textContent = errorMessages.contact.address.empty;
         hasError = false;
     }
 
@@ -233,10 +237,10 @@ export function info_form_validation() {
     const phoneRegex = /^\+212[6-7]\d{8}$/;
 
     if (info_phone === "") {
-        info_phone_error_zone.textContent = "Please enter your phone number";
+        info_phone_error_zone.textContent = errorMessages.contact.phone.empty;
         hasError = false;
-    } else if (!phoneRegex.test(info_phone)) {
-        info_phone_error_zone.textContent = "invalide phone format (+212612345678)";
+    } else if (!validators.phone.regex.test(info_phone)) {
+        info_phone_error_zone.textContent = errorMessages.contact.phone.invalid;
         hasError = false;
     }
     return hasError;
@@ -271,8 +275,8 @@ export function edu_form_validation() {
     edu_description_error_zone.textContent = "";
 
 
-    const strRegex = /[A-Za-z]/;
-    const dateRegex = /\d{4}/;
+    // const strRegex = /[A-Za-z]/;
+    // const dateRegex = /\d{4}/;
 
 
 
@@ -281,7 +285,7 @@ export function edu_form_validation() {
     // Check all fields
     if (edu_school === "") {
 
-        edu_school_error_zone.textContent = "Please enter your first name";
+        edu_school_error_zone.textContent = errorMessages.education.school.empty;
         hasError = false;
 
     }
@@ -289,51 +293,41 @@ export function edu_form_validation() {
 
     if (edu_diploma === "") {
 
-        edu_diploma_error_zone.textContent = "Please add your photo"
+        edu_diploma_error_zone.textContent = errorMessages.education.diploma.empty
         hasError = false;
 
-    } else if (!strRegex.test(edu_diploma)) {
-        edu_diploma_error_zone.textContent = "invalide input";
+    } else if (!validators.str.regex.test(edu_diploma)) {
+        edu_diploma_error_zone.textContent = errorMessages.education.diploma.invalid;
         hasError = false;
     }
 
 
+    // Start year validation
     if (edu_start_year === "") {
-
-        edu_start_year_error_zone.textContent = "Please enter your last name";
-        hasError = false;
-
-    } else if (!dateRegex.test(Number(edu_start_year))) {
-        edu_start_year_error_zone.textContent = "invalide date ";
+        edu_start_year_error_zone.textContent = errorMessages.education.startYear.empty;
+        hasError = true;
+    } else if (!validators.date.regex.test(edu_start_year) || edu_start_year >= edu_end_year) {
+        edu_start_year_error_zone.textContent = errorMessages.education.startYear.invalid;
         hasError = false;
     }
 
-
+    // End year validation
     if (edu_end_year === "") {
-
-        edu_end_year_error_zone.textContent = "Please enter your last name";
-        hasError = false;
-
-    } else if (!dateRegex.test(Number(edu_end_year))) {
-        edu_end_year_error_zone.textContent = "invalide date";
+        edu_end_year_error_zone.textContent = errorMessages.education.endYear.empty;
+        hasError = true;
+    } else if (!validators.date.regex.test(edu_end_year) || edu_start_year >= edu_end_year) {
+        edu_end_year_error_zone.textContent = errorMessages.education.endYear.invalid;
         hasError = false;
     }
+
+
 
     if (edu_description === "") {
 
-        edu_description_error_zone.textContent = "Please enter your last name";
-        hasError = false;
-
-    } else if (!strRegex.test(edu_description)) {
-
-        edu_description.textContent = "invalide input";
+        edu_description_error_zone.textContent = errorMessages.education.description.empty;
         hasError = false;
 
     }
-
-
-
-
     return hasError
 }
 // Experience information form validation
@@ -364,8 +358,8 @@ export function exp_form_validation() {
     exp_description_error_zone.textContent = "";
 
 
-    const strRegex = /[A-Za-z]/;
-    const dateRegex = /\d{4}/;
+    // const strRegex = /[A-Za-z]/;
+    // const dateRegex = /\d{4}/;
 
 
 
@@ -374,7 +368,7 @@ export function exp_form_validation() {
     // Check all fields
     if (exp_company === "") {
 
-        company_error_zone.textContent = "Please enter company name";
+        company_error_zone.textContent = errorMessages.experience.company.empty;
         hasError = false;
 
     }
@@ -382,53 +376,40 @@ export function exp_form_validation() {
 
     if (exp_position === "") {
 
-        position_error_zone.textContent = "Please add your position"
+        position_error_zone.textContent = errorMessages.experience.position.empty
         hasError = false;
 
-    } else if (!strRegex.test(exp_position)) {
+    } else if (!validators.str.regex.test(exp_position)) {
 
-        position_error_zone.textContent = "invalide input";
+        position_error_zone.textContent = errorMessages.experience.position.invalid;
         hasError = false;
 
     }
 
 
+    // Start year validation
     if (exp_start_year === "") {
-
-        exp_start_year_error_zone.textContent = "invalide date";
+        exp_start_year_error_zone.textContent = errorMessages.experience.startYear.empty;
         hasError = false;
-
-    } else if (!dateRegex.test(Number(exp_start_year))) {
-        exp_start_year_error_zone.textContent = "invalide date format";
+    } else if (!validators.date.regex.test(exp_start_year) || exp_start_year >= exp_end_year) {
+        exp_start_year_error_zone.textContent = errorMessages.experience.startYear.invalid;
         hasError = false;
     }
 
-
+    // end year validation
     if (exp_end_year === "") {
-
-        exp_end_year_error_zone.textContent = "Please enter the date ";
-        hasError = false;
-
-    } else if (!dateRegex.test(Number(exp_end_year))) {
-        exp_end_year_error_zone.textContent = "invalide date format";
-        hasError = false;
+        exp_end_year_error_zone.textContent = errorMessages.experience.endYear
+    } else if (!validators.date.regex.test(exp_end_year) || exp_start_year >= exp_end_year) {
+        exp_end_year_error_zone.textContent = errorMessages.experience.endYear.invalid
+        hasError = false
     }
 
     if (exp_description === "") {
 
-        exp_description_error_zone.textContent = "Please fill this form";
-        hasError = false;
-
-    } else if (!strRegex.test(exp_description)) {
-
-        exp_description_error_zone.textContent = "invalide input";
+        exp_description_error_zone.textContent = errorMessages.experience.description.empty;
         hasError = false;
 
     }
-
-
-
-
 
     return hasError;
 }
@@ -445,16 +426,13 @@ export function skills_form_validation() {
     tech_skills_error_zone.textContent = "";
 
 
-    const strRegex = /^[A-Za-z]$/
+    // const strRegex = /^[A-Za-z]$/
     let hasError = true;
 
     // Check all fields
-    if (technical_skills === "") {
-        tech_skills_error_zone.textContent = "Please enter your technical skill";
-        hasError = false;
-    }
-    if (soft_skills === "") {
-        skills_list_error_zone.textContent = "Please select a soft skill";
+    if (technical_skills === "" || soft_skills === "") {
+        tech_skills_error_zone.textContent = errorMessages.skills.technical.empty;
+        skills_list_error_zone.textContent = errorMessages.skills.soft.empty;
         hasError = false;
     }
 
@@ -475,18 +453,20 @@ export function languages_form_validation() {
     language_name_error_zone.textContent = "";
 
 
-    const strRegex = /^[A-Za-z]$/
+    // const strRegex = /^[A-Za-z]$/
     let hasError = true;
 
     // Check all fields
-    if (language_name === "") {
-        language_name_error_zone.textContent = "Please enter your technical skill";
+    if (language_name === "" || language_level === "") {
+        language_name_error_zone.textContent = errorMessages.languages.name.empty;
+        language_level_error_zone.textContent = errorMessages.languages.level.empty;
+        hasError = false;
+    } else if (!validators.str.regex.test(language_name) || !validators.str.regex.test(language_level)) {
+        language_name_error_zone.textContent = errorMessages.languages.name.invalid;
+        language_level_error_zone.textContent = errorMessages.languages.level.invalid;
         hasError = false;
     }
-    if (language_level === "") {
-        language_level_error_zone.textContent = "Please select a soft skill";
-        hasError = false;
-    }
+
 
     return hasError;
 
@@ -514,24 +494,24 @@ export function certification_form_validation() {
 
 
 
-    const strRegex = /^[A-Za-z]$/
-    const dateRegex = /^\d{4}$/
+    // const strRegex = /^[A-Za-z]$/
+    // const dateRegex = /^\d{4}$/
     let hasError = true;
 
     // Check all fields
     if (cert_title === "") {
-        cert_title_error_zone.textContent = "Please enter your Certification title";
+        cert_title_error_zone.textContent = errorMessages.certification.title.empty;
         hasError = false;
     }
     if (cert_issuer === "") {
-        cert_issuer_error_zone.textContent = "Please enter your issuer ";
+        cert_issuer_error_zone.textContent = errorMessages.certification.issuer.empty;
         hasError = false;
     }
     if (cert_year === '') {
-        cert_year_error_zone.textContent = "Plear enter the year"
+        cert_year_error_zone.textContent = errorMessages.certification.year.empty;
         hasError = false;
-    } else if (!dateRegex.test(Number(cert_year))) {
-        cert_year_error_zone.textContent = "invalide date format (YYYY)"
+    } else if (!validators.date.regex.test(Number(cert_year))) {
+        cert_year_error_zone.textContent = errorMessages.certification.year.invalid;
         hasError = false;
     }
 
@@ -571,22 +551,23 @@ export function projects_form_validation() {
 
     // Check all fields
     if (project_name === "") {
-        project_name_error_zone.textContent = "Please enter your Certification title";
+        project_name_error_zone.textContent = errorMessages.projects.name.empty;
         hasError = false;
     }
     if (project_link === "") {
-        project_link_error_zone.textContent = "Please enter your issuer ";
+        project_link_error_zone.textContent = errorMessages.projects.link.empty;
+        hasError = false;
+    } else if (!validators.link.regex.test(project_link)) {
+        project_link_error_zone.textContent = errorMessages.projects.link.invalid;
         hasError = false;
     }
     if (project_desc === '') {
-        project_desc_error_zone.textContent = "Plear enter the year"
+        project_desc_error_zone.textContent = errorMessages.projects.description.empty
         hasError = false;
     }
 
+    
     return hasError;
-
-
-
 }
 
 
