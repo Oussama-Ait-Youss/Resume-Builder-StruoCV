@@ -140,10 +140,6 @@ nextBtns.addEventListener('click', (e) => {
     valid = projects_form_validation();
     save_data_localstorage();
     fillCVTemplate();
-    const nextBtn = document.getElementById('next-btn');
-    if (nextBtn) {
-      nextBtn.classList.add('hidden');
-    }
   } else if (currentForm == 7) {
     // code
     fillCVTemplate();
